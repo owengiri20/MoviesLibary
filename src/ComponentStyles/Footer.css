@@ -1,0 +1,30 @@
+#footer {
+    display: flex;
+    flex-direction: column;
+    background: #000000;
+    padding: 2rem 0;
+    color: #f4f4f4;
+}
+
+#footer a {
+    color: #f4f4f4;
+    text-decoration: none;
+}
+
+.footer-row-1{
+    display: flex;
+    max-width: 1300px;
+    margin: auto;
+}
+
+.footer-row-1 .footer-col-1{
+    text-align: left;
+    margin-right: 15rem;
+    margin: 1rem 10rem 1rem 1rem;
+}
+
+.footer-row-1 .footer-col-2{
+    margin-top: 1rem;
+}
+
+

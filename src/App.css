@@ -1,6 +1,10 @@
 .App {
   text-align: center;
 }
+.container {
+  max-width: 1300px;
+  margin: auto;
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -31,3 +35,29 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* SCROLL BAR */
+/* Customize website's scrollbar like Mac OS
+Not supports in Firefox and IE */
+
+/* total width */
+*::-webkit-scrollbar {
+  background-color:rgba(223, 208, 208, 0);
+  width:16px
+}
+
+/* background of the scrollbar except button or resizer */
+*::-webkit-scrollbar-track {
+  background-color:#ffffff00
+}
+
+/* scrollbar itself */
+*::-webkit-scrollbar-thumb {
+  background: #5f1f37d0;
+  
+  border-radius:16px;
+}
+
+/* set button(top and bottom of the scrollbar) */
+*::-webkit-scrollbar-button {display:none}

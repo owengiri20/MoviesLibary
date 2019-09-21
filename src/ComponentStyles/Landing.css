@@ -1,0 +1,18 @@
+#landing {
+    margin-top: 8vh;
+    height: 100vh;
+}
+.landing-content{
+    background: url("http://www.justinkownacki.com/wp-content/uploads/2018/04/avengers-infinity-war-imax-poster-1100156-1280x0.jpeg") no-repeat top center/cover;
+    height: 100%;
+    position: relative;
+}
+
+.landing-movie-details{
+    background: #0e0e0ed4;
+    position: absolute;
+    color: #fff;
+    bottom: 15%;
+    padding: 1rem 4rem;
+}
+
