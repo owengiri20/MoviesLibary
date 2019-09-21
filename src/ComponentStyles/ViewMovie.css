@@ -1,10 +1,20 @@
+
+.ViewMovie{
+    margin: 7rem 1rem 2rem 1rem;
+    min-height: 90vh;
+    color: #f4f4f4;
+}
 .ViewMovie-wrapper {
     display: flex;
-    max-width: 1300px;
+    max-width: 1200px;
     margin: auto;
-
 }
 
 .ViewMovie-wrapper-col1 img{
     width: 20rem;
+}
+
+.ViewMovie-wrapper-col2{
+    margin-left: 2rem;
+    text-align: left;
 }

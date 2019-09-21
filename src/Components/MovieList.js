@@ -22,6 +22,8 @@ class MovieList extends Component {
                 return res.json()
             }).then(data => {
                 result = data.results;
+                console.log("bsdfg", result);
+
             });
         return result;
     }
@@ -32,6 +34,7 @@ class MovieList extends Component {
                 let moviesToAdd = []
                 movies.forEach(movie => {
                     let movieToAdd = {
+                        movieId: movie.id,
                         movieTitle: movie.title,
                         movieRating: movie.vote_average,
                         movieGenre: "Action/Adventure",
@@ -40,8 +43,10 @@ class MovieList extends Component {
                     moviesToAdd.push(movieToAdd);
                 });
                 this.setState({ moviesList: moviesToAdd })
+                console.log("ml", this.state.moviesList);
             })
-        console.log("popop", this.state.moviesList);
+
+
 
     }
 
@@ -50,6 +55,7 @@ class MovieList extends Component {
             .map(movie => {
                 return (
                     <MovieCard
+                        movieId={movie.movieId}
                         movieTitle={movie.movieTitle}
                         movieGenre={movie.movieGenre}
                         movieRating={movie.movieRating}
