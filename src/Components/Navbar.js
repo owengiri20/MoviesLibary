@@ -5,13 +5,13 @@ class Navbar extends Component {
     render() {
         return (
             <header>
-                <h1 class="logo">Logo</h1>
-                <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+                <h1 className="logo">Logo</h1>
+                <input type="checkbox" id="nav-toggle" className="nav-toggle" />
                 <nav>
                     <ul>
-                        <li>
-                            <input type="text" name="" id="" />
-                            <button>Search</button>
+                        <li className="search-container">
+                            <input className="nav-search" type="text" name="" id="" placeholder="search movie" />
+                            <button className="search-btn">Search</button>
                         </li>
                         <li>
                             <a href="#">About</a>
@@ -24,7 +24,7 @@ class Navbar extends Component {
                         </li>
                     </ul>
                 </nav>
-                <label for="nav-toggle" class="nav-toggle-label">
+                <label for="nav-toggle" className="nav-toggle-label">
                     <span></span>
                 </label>
             </header>

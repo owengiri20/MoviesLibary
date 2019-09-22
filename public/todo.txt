@@ -1,0 +1,7 @@
+navbar
+    - logo, home click
+
+link to cast member profile
+make footer more responsive
+cast profile cards replacement image for null 
+make carousels
