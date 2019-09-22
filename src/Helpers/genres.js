@@ -14,4 +14,12 @@ function getGenres(ids) {
     return matched.join(" - ")
 }
 
-export { genres, getGenres }; 
+function getGenresObj(genres) {
+    const genreIds = genres.map(genre => {
+        return genre.id
+    })
+
+    return getGenres(genreIds);
+}
+
+export { genres, getGenres, getGenresObj }; 
