@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import API_KEY from "../Helpers/key";
 import "../ComponentStyles/CastCarousel.css";
+import CastProfileCard from './CastProfileCard';
 
 class CastCaruosel extends Component {
     constructor(props) {
@@ -47,7 +48,10 @@ class CastCaruosel extends Component {
 
     displayCast() {
         return this.state.castToDisplay.map(castMember => {
-            return <div>{castMember.name}</div>
+            return <CastProfileCard
+                name={castMember.name}
+                role={castMember.role}
+                poster={castMember.poster} />
         })
     }
 
