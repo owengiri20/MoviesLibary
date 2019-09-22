@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "../ComponentStyles/ViewMovie.css";
+import { genres, getGenres } from "../Helpers/genres";
 import API_KEY from '../Helpers/key';
 
 class ViewMovie extends Component {
@@ -37,11 +38,12 @@ class ViewMovie extends Component {
             .then(movie => {
                 movieOutput = {
                     movieTitle: movie.title,
-                    movieGenre: "Action/Adveture",
+                    movieGenre: getGenres(movie.genres),
                     movieDescription: movie.overview,
                     moviePoster: `http://image.tmdb.org/t/p/original//${movie.poster_path}`,
                     movieRating: movie.vote_average,
-                    movieTagline: movie.tagline
+                    movieTagline: movie.tagline,
+                    movieDate: (movie.release_date ? movie.release_date.substring(0, 4) : "-")
                 }
                 this.setState({ movieToDisplay: movieOutput })
 
@@ -50,7 +52,7 @@ class ViewMovie extends Component {
     render() {
         console.log("MOVIIIE: ", this.state.movieToDisplay);
         if (this.state.movieToDisplay !== "") {
-            const { movieTitle, movieDescription, movieTagline, movieGenre, movieRating, moviePoster } = this.state.movieToDisplay;
+            const { movieTitle, movieDescription, movieDate, movieTagline, movieGenre, movieRating, moviePoster } = this.state.movieToDisplay;
             return (
                 <div className="ViewMovie">
                     <div className="ViewMovie-wrapper">
@@ -58,7 +60,7 @@ class ViewMovie extends Component {
                             <img src={moviePoster} alt="" />
                         </div>
                         <div className="ViewMovie-wrapper-col2">
-                            <h1 className="ViewMovie-title">{movieTitle}</h1>
+                            <h1 className="ViewMovie-title">{movieTitle} ({movieDate})</h1>
                             <p className="ViewMovie-description">
                                 {movieTagline} <br /> {movieDescription}
                             </p>

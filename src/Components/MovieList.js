@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieCard from "./MovieCard";
+import { genres, getGenres } from "../Helpers/genres"
 import "../ComponentStyles/MovieList.css";
 
 
@@ -37,8 +38,9 @@ class MovieList extends Component {
                         movieId: movie.id,
                         movieTitle: movie.title,
                         movieRating: movie.vote_average,
-                        movieGenre: "Action/Adventure",
-                        moviePoster: `http://image.tmdb.org/t/p/original//${movie.poster_path}`
+                        movieGenre: getGenres(movie.genre_ids),
+                        moviePoster: `http://image.tmdb.org/t/p/original//${movie.poster_path}`,
+                        movieDate: (movie.release_date ? movie.release_date.substring(0, 4) : "-")
                     }
                     moviesToAdd.push(movieToAdd);
                 });
@@ -56,7 +58,7 @@ class MovieList extends Component {
                 return (
                     <MovieCard
                         movieId={movie.movieId}
-                        movieTitle={movie.movieTitle}
+                        movieTitle={`${movie.movieTitle} (${movie.movieDate})`}
                         movieGenre={movie.movieGenre}
                         movieRating={movie.movieRating}
                         moviePoster={movie.moviePoster}

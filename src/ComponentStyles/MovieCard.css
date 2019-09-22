@@ -6,6 +6,10 @@
     margin: 3rem 0;
 }
 
+a{
+    text-decoration: none;
+}
+
 .MovieCard img{
     height: 14rem;
     /* width: 10rem; */
