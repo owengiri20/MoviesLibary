@@ -34,6 +34,7 @@ class CastCaruosel extends Component {
             .then(cast => {
                 castToAdd = cast.map(person => {
                     return {
+                        creditId: person.credit_id,
                         id: person.id,
                         order: person.order,
                         name: person.name,
@@ -59,7 +60,7 @@ class CastCaruosel extends Component {
         if (this.state.castToDisplay !== []) {
             return (
                 <section class="CastCarousel container">
-                    <h1 class="CastCarousel-title big-text">{this.props.listTitle}</h1>
+                    <h1 class="CastCarousel-title big-text">Cast</h1>
                     <div class="CastCarousel-carousel">
                         {/* <!-- Cast carousel goes here --> */}
                         {this.displayCast()}

@@ -23,7 +23,7 @@ class Landing extends Component {
     async setShowcaseMovie(params) {
         // get and put movie to obj
         let movie = {}
-        let num = 5;
+        let num = 9;
         this.getPopularMovies().then(data => {
             movie = {
                 movieTitle: data[num].title,

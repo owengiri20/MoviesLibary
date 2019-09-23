@@ -34,22 +34,21 @@ class MovieList extends Component {
             .then(movies => {
                 let moviesToAdd = []
                 movies.forEach(movie => {
-                    let movieToAdd = {
-                        movieId: movie.id,
-                        movieTitle: movie.title,
-                        movieRating: movie.vote_average,
-                        movieGenre: getGenres(movie.genre_ids),
-                        moviePoster: `http://image.tmdb.org/t/p/original//${movie.poster_path}`,
-                        movieDate: (movie.release_date ? movie.release_date.substring(0, 4) : "-")
+                    if (movie.title) {
+                        let movieToAdd = {
+                            movieId: movie.id,
+                            movieTitle: movie.title,
+                            movieRating: movie.vote_average,
+                            movieGenre: getGenres(movie.genre_ids),
+                            moviePoster: `http://image.tmdb.org/t/p/original//${movie.poster_path}`,
+                            movieDate: (movie.release_date ? movie.release_date.substring(0, 4) : "-")
+                        }
+                        moviesToAdd.push(movieToAdd);
                     }
-                    moviesToAdd.push(movieToAdd);
                 });
                 this.setState({ moviesList: moviesToAdd })
                 console.log("ml", this.state.moviesList);
             })
-
-
-
     }
 
     displayMovies() {

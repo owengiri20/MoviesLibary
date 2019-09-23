@@ -8,6 +8,8 @@ import Navbar from "./Components/Navbar";
 import Landing from "./Components/Landing";
 import Footer from "./Components/Footer";
 import ViewMovie from "./Components/ViewMovie";
+import CastMemberProfile from "./Components/CastMemberProfile";
+
 import DisplayCarousels from "./Components/DisplayCarousels"
 import API_KEY from './Helpers/key';
 
@@ -25,6 +27,7 @@ function App() {
             <DisplayCarousels />
           </div>} />
         <Route exact path="/ViewMovie/:id" render={(routeProps) => <ViewMovie {...routeProps} />} />
+        <Route path="/Person/1" exact render={() => <CastMemberProfile />} />
       </Switch>
 
 

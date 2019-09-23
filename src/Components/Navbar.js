@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import "../ComponentStyles/Navbar.css";
 
 class Navbar extends Component {
     render() {
         return (
             <header>
-                <h1 className="logo">Logo</h1>
+                <Link to="/" className="logo">
+                    <h1>Logo</h1></Link >
                 <input type="checkbox" id="nav-toggle" className="nav-toggle" />
                 <nav>
                     <ul>
