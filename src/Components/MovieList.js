@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MovieCard from "./MovieCard";
-import { genres, getGenres } from "../Helpers/genres"
+import { genres, getGenres } from "../Helpers/genres";
 import "../ComponentStyles/MovieList.css";
 
 

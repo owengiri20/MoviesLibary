@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../ComponentStyles/CastProfileCard.css";
 
 
+
 class CastProfileCard extends Component {
     render() {
         const { name, role, poster, id } = this.props

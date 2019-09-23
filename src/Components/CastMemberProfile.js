@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import API_KEY from "../Helpers/key";
 import "../ComponentStyles/CastMemberProfile.css";
+import MovieList from "./MovieList";
+import MoviesWorkedIn from './MoviesWorkedIn';
+
+
 
 
 class CastMemberProfile extends Component {
@@ -56,6 +60,8 @@ class CastMemberProfile extends Component {
                             </button>
                         </div>
                     </div>
+                    <MoviesWorkedIn id={this.props.match.params.id} />
+
                 </div>
             );
         }
