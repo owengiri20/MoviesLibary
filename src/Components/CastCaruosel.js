@@ -50,6 +50,7 @@ class CastCaruosel extends Component {
     displayCast() {
         return this.state.castToDisplay.map(castMember => {
             return <CastProfileCard
+                id={castMember.id}
                 name={castMember.name}
                 role={castMember.role}
                 poster={castMember.poster} />

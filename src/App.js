@@ -27,7 +27,7 @@ function App() {
             <DisplayCarousels />
           </div>} />
         <Route exact path="/ViewMovie/:id" render={(routeProps) => <ViewMovie {...routeProps} />} />
-        <Route path="/Person/1" exact render={() => <CastMemberProfile />} />
+        <Route path="/Person/:id" exact render={(routeProps) => <CastMemberProfile {...routeProps} />} />
       </Switch>
 
 

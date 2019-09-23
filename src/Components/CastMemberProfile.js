@@ -1,36 +1,66 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import API_KEY from "../Helpers/key";
 import "../ComponentStyles/CastMemberProfile.css";
 
 
 class CastMemberProfile extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            peronToShow: ""
+        }
+    }
+    componentDidMount() {
+        this.getCastMember(this.props.match.params.id);
+    }
+
+    async getCastMember(id) {
+        let result;
+        await fetch(`https://api.themoviedb.org/3/person/${id}?api_key=${API_KEY}&language=en-US`)
+            .then(res => {
+                return res.json()
+            }).then(data => {
+                this.setState({ peronToShow: data })
+                console.log("person to show", this.state.peronToShow);
+
+            });
+        return result;
+    }
+
     render() {
-        return (
-            <div className="CastMemberProfile">
-                <div className="CastMemberProfile-wrapper">
-                    <div className="CastMemberProfile-wrapper-col1">
-                        <img src="https://image.tmdb.org/t/p/w780/2qhIDp44cAqP2clOgt2afQI07X8.jpg" alt="" />
-                    </div>
-                    <div className="CastMemberProfile-wrapper-col2">
-                        <h1 className="CastMemberProfile-name">
-                            Tom Holland
-                        </h1>
-                        <p className="CastMemberProfile-dob">
-                            2000-20-5
-                        </p>
-                        <h1 className="bio-title">
-                            Biography
-                        </h1>
-                        <p className="CastMemberProfile-bio">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, commodi voluptas voluptatem facilis expedita mollitia, odio sapiente impedit quam ducimus, quibusdam aspernatur! Totam, iste? Necessitatibus incidunt ipsum suscipit dignissimos. Quae.
-                        </p>
-                        <Link className="back-btn">
-                            {"Back"}
-                        </Link>
+
+        if (this.state.peronToShow != "") {
+            const { birthday, known_for_department, name, biography, profile_path, imdb_id } = this.state.peronToShow;
+            return (
+                <div className="CastMemberProfile">
+                    <div className="CastMemberProfile-wrapper">
+                        <div className="CastMemberProfile-wrapper-col1">
+                            <img src={`http://image.tmdb.org/t/p/original//${profile_path}`} alt={name} />
+                        </div>
+                        <div className="CastMemberProfile-wrapper-col2">
+                            <h1 className="CastMemberProfile-name">
+                                {name}
+                            </h1>
+                            <p className="CastMemberProfile-dob">
+                                {birthday}
+                            </p>
+                            <h1 className="bio-title">
+                                Biography
+                            </h1>
+                            <p className="CastMemberProfile-bio">
+                                {biography}
+                            </p>
+                            <Link className="back-btn">
+                                {"Back"}
+                            </Link>
+                        </div>
                     </div>
                 </div>
-            </div>
-        );
+            );
+        }
+        return <div>lol</div>
+
     }
 }
 
