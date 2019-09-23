@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import API_KEY from "../Helpers/key";
 import "../ComponentStyles/CastCarousel.css";
 import CastProfileCard from './CastProfileCard';
+import defImg from "./defImg.png";
 
 class CastCaruosel extends Component {
     constructor(props) {
@@ -39,7 +40,7 @@ class CastCaruosel extends Component {
                         order: person.order,
                         name: person.name,
                         role: person.character,
-                        poster: `http://image.tmdb.org/t/p/original//${person.profile_path}`
+                        poster: person.profile_path != null ? `http://image.tmdb.org/t/p/original//${person.profile_path}` : defImg
                     }
                 });
                 this.setState({ castToDisplay: castToAdd })
