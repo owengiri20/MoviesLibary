@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import API_KEY from "../Helpers/key"
-import "../ComponentStyles/Landing.css"
+import API_KEY from "../Helpers/key";
+import "../ComponentStyles/Landing.css";
+import { Link } from "react-router-dom";
 
 class Landing extends Component {
     constructor(props) {
@@ -26,6 +27,7 @@ class Landing extends Component {
         let num = 9;
         this.getPopularMovies().then(data => {
             movie = {
+                movieId: data[num].id,
                 movieTitle: data[num].title,
                 movieRating: data[num].vote_average,
                 movieGenre: "Action/Adventure",
@@ -49,19 +51,23 @@ class Landing extends Component {
             )
         } else {
 
-            const { movieTitle, movieRating, movieGenre, moviePoster, movieDate } = this.state.showcaseMovie;
+            const { movieTitle, movieRating, movieGenre, moviePoster, movieDate, movieId } = this.state.showcaseMovie;
 
             return (
-                <section id="landing">
-                    <div class="landing-content" style={{ backgroundImage: `url(${moviePoster})` }}>
-                        <img src="" alt="" />
-                        <div className="landing-movie-details">
-                            <h1 className="movie-title big-text">{movieTitle} ({movieDate})</h1>
-                            <h2 className="movie-genre med-text">{movieGenre}</h2>
-                            <div className="movie-rating">{movieRating}&#9734;</div>
+                <Link to={`/ViewMovie/${movieId}`}>
+                    <section id="landing">
+                        <div class="landing-content" style={{ backgroundImage: `url(${moviePoster})` }}>
+                            <img src="" alt="" />
+                            <div className="landing-movie-details">
+                                <p>~ Recommended ~</p>
+                                <h1 className="movie-title big-text">{movieTitle} ({movieDate})</h1>
+                                <h2 className="movie-genre med-text">{movieGenre}</h2>
+                                <div className="movie-rating">{movieRating} &#9734;</div>
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </Link>
+
             );
         }
 
