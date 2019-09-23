@@ -51,9 +51,9 @@ class CastMemberProfile extends Component {
                             <p className="CastMemberProfile-bio">
                                 {biography}
                             </p>
-                            <Link className="back-btn">
+                            <button className="back-btn" onClick={() => this.props.history.goBack()}>
                                 {"Back"}
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </div>
