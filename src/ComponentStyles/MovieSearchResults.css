@@ -1,0 +1,12 @@
+.MovieSearchResults{
+    margin-top: 8rem;
+}
+.MovieSearchResults-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1300px;
+    margin: auto;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
