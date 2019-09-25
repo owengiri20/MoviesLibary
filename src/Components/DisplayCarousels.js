@@ -7,7 +7,7 @@ import API_KEY from '../Helpers/key';
 class DisplayCarousels extends Component {
     render() {
         return (
-            <div>
+            <div style={{ marginTop: "3rem" }}>
                 <MovieList
                     apiLink={`
         https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`} listTitle="Trending" />

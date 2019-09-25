@@ -4,7 +4,7 @@ import API_KEY from "../Helpers/key";
 import "../ComponentStyles/CastMemberProfile.css";
 import MovieList from "./MovieList";
 import MoviesWorkedIn from './MoviesWorkedIn';
-
+import defImg from "./defImg.png";
 
 
 
@@ -40,7 +40,7 @@ class CastMemberProfile extends Component {
                 <div className="CastMemberProfile">
                     <div className="CastMemberProfile-wrapper">
                         <div className="CastMemberProfile-wrapper-col1">
-                            <img src={`http://image.tmdb.org/t/p/original//${profile_path}`} alt={name} />
+                            <img src={profile_path ? `http://image.tmdb.org/t/p/original//${profile_path}` : defImg} alt={name} />
                         </div>
                         <div className="CastMemberProfile-wrapper-col2">
                             <h1 className="CastMemberProfile-name">

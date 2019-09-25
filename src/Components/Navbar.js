@@ -49,14 +49,9 @@ class Navbar extends Component {
 
                         </li>
                         <li>
-                            <a href="#">About</a>
+                            <a href="#">EXPLORE</a>
                         </li>
-                        <li>
-                            <a href="#">Blog</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact</a>
-                        </li>
+
                     </ul>
                 </nav>
                 <label for="nav-toggle" className="nav-toggle-label">
