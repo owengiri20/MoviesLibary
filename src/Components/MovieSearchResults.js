@@ -20,7 +20,6 @@ class MovieSearchResults extends Component {
 
     componentDidUpdate() {
         this.getMovies(this.props.query)
-
     }
 
     async getMovies(query) {

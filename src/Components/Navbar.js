@@ -44,10 +44,9 @@ class Navbar extends Component {
                                 id=""
                                 onChange={this.handleChange}
                                 placeholder="search movie" />
-                            {/* <button
-                                onClick={this.handleSubmit} className="search-btn">Search</button> */}
 
                             <Link onClick={this.handleSubmit} to={`/SearchMovie/${this.state.query}`} className="search-btn">Search</Link>
+
                         </li>
                         <li>
                             <a href="#">About</a>
