@@ -9,12 +9,18 @@ class MovieSearchResults extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            movies: []
+            movies: [],
+            query: this.props.query
         }
     }
 
     componentDidMount() {
-        this.getMovies(this.props.match.params.query)
+        this.getMovies(this.props.query)
+    }
+
+    componentDidUpdate() {
+        this.getMovies(this.props.query)
+
     }
 
     async getMovies(query) {

@@ -15,40 +15,55 @@ import MovieSearchResults from "./Components/MovieSearchResults";
 import DisplayCarousels from "./Components/DisplayCarousels"
 import API_KEY from './Helpers/key';
 
-function App() {
-  return (
-    <div className="App scrollbar">
-      <Navbar />
-      <Switch>
-        <Route
-          exact path="/"
-          render={() =>
-            <div>
-              <Landing />
-              <DisplayCarousels />
-            </div>} />
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: ""
+    }
+    this.handleQuery = this.handleQuery.bind(this);
+  }
 
-        <Route
-          exact
-          path="/ViewMovie/:id"
-          render={(routeProps) => <ViewMovie {...routeProps}
-          />} />
+  handleQuery(query) {
+    this.setState({ query: query })
+  }
 
-        <Route
-          path="/Person/:id"
-          exact render={(routeProps) => <CastMemberProfile {...routeProps}
-          />} />
+  render() {
+    return (
+      <div className="App scrollbar">
+        <Navbar handleQuery={this.handleQuery} />
+        <Switch>
+          <Route
+            exact path="/"
+            render={() =>
+              <div>
+                <Landing />
+                <DisplayCarousels />
+              </div>} />
 
-        <Route
-          path="/SearchMovie/:query"
-          exact render={(routeProps) => <MovieSearchResults {...routeProps}
-          />} />
-      </Switch>
+          <Route
+            exact
+            path="/ViewMovie/:id"
+            render={(routeProps) => <ViewMovie {...routeProps}
+            />} />
+
+          <Route
+            path="/Person/:id"
+            exact render={(routeProps) => <CastMemberProfile {...routeProps}
+            />} />
+
+          <Route
+            path="/SearchMovie/:query"
+            exact render={(routeProps) => <MovieSearchResults {...routeProps} query={this.state.query}
+            />} />
+        </Switch>
 
 
-      <Footer />
-    </div>
-  );
+        <Footer />
+      </div>
+    );
+  }
+
 }
 
 export default App;
